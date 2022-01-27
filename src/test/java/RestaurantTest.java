@@ -68,4 +68,23 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+    //<<<<<<<<<<<<<<<<<<<<<<<COST>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void display_order_total_for_selected_items(){
+        restaurant.selectItemFromMenu("Sweet corn soup");
+        restaurant.selectItemFromMenu("Vegetable lasagne");
+
+        assertEquals(388, restaurant.getOrderTotal());
+    }
+    @Test
+    public void display_order_total_for_selected_item_after_items_removed(){
+        restaurant.selectItemFromMenu("Sweet corn soup");
+        restaurant.selectItemFromMenu("Vegetable lasagne");
+        restaurant.removeItemFromMenu("Vegetable lasagne");
+
+        assertEquals(119, restaurant.getOrderTotal());
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<COST>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
